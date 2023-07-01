@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { Container, CardWrapper, ProductName } from "./ProductList.styled";
+import { Link } from 'react-router-dom';
+import { Container, CardWrapper, ProductName } from './ProductList.styled';
 
 export const ProductList = ({ products }) => {
   return (
@@ -15,3 +15,5 @@ export const ProductList = ({ products }) => {
     </Container>
   );
 };
+
+export default ProductList;

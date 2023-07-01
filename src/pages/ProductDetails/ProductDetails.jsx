@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { getProductById } from "../fakeAPI";
+import { useParams } from 'react-router-dom';
+import { getProductById } from '../../services/fakeAPI';
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -23,3 +23,5 @@ export const ProductDetails = () => {
     </main>
   );
 };
+
+export default ProductDetails;

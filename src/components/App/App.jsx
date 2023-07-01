@@ -1,13 +1,13 @@
-import { Route, Routes } from "react-router-dom";
-import { About } from "../../pages/About";
-import { Home } from "../../pages/Home";
-import { Products } from "../../pages/Products";
-import { ProductDetails } from "../../pages/ProductDetails";
-import { NotFound } from "../../pages/NotFound";
-import { Mission } from "../Mission";
-import { Team } from "../Team";
-import { Reviews } from "../Reviews";
-import SharedLayout from "../Layout/SharedLayout";
+import { Route, Routes } from 'react-router-dom';
+import { About } from '../../pages';
+import { Home } from '../../pages';
+import { Products } from '../../pages';
+import { ProductDetails } from '../../pages';
+import { NotFound } from '../../pages';
+import { Mission } from '../../components';
+import { Team } from '../../components';
+import { Reviews } from '../../components';
+import { SharedLayout } from '../../components';
 
 export const App = () => {
   return (

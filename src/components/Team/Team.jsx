@@ -21,3 +21,5 @@ export const Team = () => {
     </section>
   );
 };
+
+export default Team;
