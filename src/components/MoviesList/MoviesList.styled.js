@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.li`
-  list-style: none;
-  > a {
-    text-decoration: none;
-  }
-`;
+padding 5px;`;
 
-export const MovieTitle = styled.h2`
-  padding: 4px;
-  margin-top: 8px;
-  color: black;
+export const MovieTitle = styled.p`
+margin 0;
+display: inline-block;
+text-decoration: underline
 `;

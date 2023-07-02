@@ -28,7 +28,7 @@ export const Home = () => {
   } else {
     return (
       <main>
-        <h1>Trending Today</h1>
+        <h2>Trending Today</h2>
         <MoviesList movies={movies} />
       </main>
     );
