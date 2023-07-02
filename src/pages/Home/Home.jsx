@@ -1,15 +1,38 @@
+import { useState, useEffect } from 'react';
+import { getTrendingMovies } from '../../services/themoviedbAPI';
+import { MoviesList } from '../../components';
+
 export const Home = () => {
-  return (
-    <main>
-      <h1>Welcome</h1>
-      <img src="https://via.placeholder.com/960x240" alt="" />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-        laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-        voluptatum voluptate.
-      </p>
-    </main>
-  );
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getTrendingMovies();
+        setIsLoading(true);
+        setMovies(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  if (error) {
+    return alert('Something went wrong. Try again.');
+  } else if (isLoading) {
+    return <p>Loading...</p>;
+  } else {
+    return (
+      <main>
+        <h1>Trending Today</h1>
+        <MoviesList movies={movies} />
+      </main>
+    );
+  }
 };
 
 export default Home;
