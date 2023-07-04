@@ -26,6 +26,7 @@ export const MoviesDetails = () => {
         const data = await getMoviesById(movieId);
         setIsLoading(true);
         setMovieDetails(data);
+        console.log(data);
       } catch (error) {
         setError(error);
       } finally {
@@ -54,10 +55,10 @@ export const MoviesDetails = () => {
             />
             <InfoList>
               <Title>
-                {title} ({release_date})
+                {title} ({parseInt(release_date)})
               </Title>
               <InfoItem>
-                User Score: <Vote>{vote_average}</Vote>
+                User Score: <Vote>{vote_average?.toFixed(1)}</Vote>
               </InfoItem>
               <InfoItem>
                 Overview <Overview>{overview}</Overview>
@@ -67,7 +68,7 @@ export const MoviesDetails = () => {
                 {genres && (
                   <Genres>
                     {genres.map(genre => (
-                      <li key={genre.id}>{genre.name}</li>
+                      <li key={genre.id}>{genre.name},</li>
                     ))}
                   </Genres>
                 )}
@@ -78,10 +79,10 @@ export const MoviesDetails = () => {
             <h4>Additional information</h4>
             <ul>
               <li>
-                <Link to="cast">Read about our mission</Link>
+                <Link to="cast">Cast</Link>
               </li>
               <li>
-                <Link to="reviews">Go through the reviews</Link>
+                <Link to="reviews">Reviews</Link>
               </li>
             </ul>
             <Outlet />
