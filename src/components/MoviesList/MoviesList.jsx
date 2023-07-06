@@ -8,7 +8,10 @@ export const MoviesList = ({ movies }) => {
     <>
       {movies.map(movie => (
         <CardWrapper key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+          <Link
+            to={`/goit-react-hw-05-movies/movies/${movie.id}`}
+            state={{ from: location }}
+          >
             <MovieTitle>{movie.title}</MovieTitle>
           </Link>
         </CardWrapper>
