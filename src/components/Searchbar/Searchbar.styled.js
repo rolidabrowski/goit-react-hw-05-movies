@@ -4,28 +4,23 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 50px;
+  border: 1px solid black;
   overflow: hidden;
 `;
 
-export const Button = styled.button`
-  display: inline-block;
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
   border: 0;
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.6;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
   outline: none;
-
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 export const Input = styled.input`

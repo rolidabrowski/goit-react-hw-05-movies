@@ -1,9 +1,9 @@
-import { Form, Button, Input } from './Searchbar.styled';
+import { Form, Input, IconContainer } from './Searchbar.styled';
 
 export const Searchbar = ({ value, onChange }) => {
   return (
     <Form>
-      <Button type="submit">
+      <IconContainer>
         <svg
           stroke="currentColor"
           fill="currentColor"
@@ -20,7 +20,7 @@ export const Searchbar = ({ value, onChange }) => {
             clipRule="evenodd"
           ></path>
         </svg>
-      </Button>
+      </IconContainer>
       <Input
         type="text"
         value={value}
