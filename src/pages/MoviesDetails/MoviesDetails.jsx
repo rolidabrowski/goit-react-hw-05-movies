@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { BackLink } from '../../components';
 import { getMoviesById } from '../../services/themoviedbAPI';
 import {
   Container,
@@ -19,6 +19,9 @@ export const MoviesDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/goit-react-hw-05-movies';
 
   useEffect(() => {
     (async () => {
@@ -46,6 +49,7 @@ export const MoviesDetails = () => {
 
     return (
       <main>
+        <BackLink to={backLinkHref}>back to movies</BackLink>
         <Container>
           <InfoContainer>
             <Poster

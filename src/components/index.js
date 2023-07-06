@@ -1,4 +1,5 @@
 export * from './App';
+export * from './BackLink';
 export * from './Cast';
 export * from './SharedLayout';
 export * from './Reviews';
