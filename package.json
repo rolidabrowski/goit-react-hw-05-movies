@@ -2,7 +2,7 @@
   "name": "goit-react-hw-05-movies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rolidabrowski.github.io/",
+  "homepage": "https://rolidabrowski.github.io/goit-react-hw-05-movies/",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.5",
