@@ -1,9 +1,9 @@
-import { Form, Input, IconContainer } from './Searchbar.styled';
+import { SerachbarBox, Input, IconContainer } from './Searchbar.styled';
 import PropTypes from 'prop-types';
 
 export const Searchbar = ({ value, onChange }) => {
   return (
-    <Form>
+    <SerachbarBox>
       <IconContainer>
         <svg
           stroke="currentColor"
@@ -30,7 +30,7 @@ export const Searchbar = ({ value, onChange }) => {
         placeholder="Search movies"
         onChange={onChange}
       />
-    </Form>
+    </SerachbarBox>
   );
 };
 
