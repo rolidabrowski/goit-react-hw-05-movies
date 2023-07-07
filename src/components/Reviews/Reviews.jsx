@@ -26,11 +26,10 @@ export const Reviews = () => {
     return alert('Something went wrong. Try again.');
   } else if (isLoading) {
     return <p>Loading...</p>;
-  } else if (!movieReviews) {
-    return <p>Sorry, no reviews for this movie.</p>;
   } else {
     return (
       <section>
+        {movieReviews.length === 0 && <p>Sorry, no reviews for this movie.</p>}
         <ul>
           {movieReviews.map(({ id, author, content }) => (
             <li key={id}>
