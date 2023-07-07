@@ -1,25 +1,47 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getMoviesReviews } from '../../services/themoviedbAPI';
+
 export const Reviews = () => {
-  return (
-    <section>
-      <div>
-        <h2>First review - 4.6/5</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem harum
-          architecto sapiente corporis, voluptatem quas voluptatibus fugiat
-          nulla commodi quidem, dolorem distinctio inventore blanditiis illo
-          tenetur aut enim ex laborum!
-        </p>
-      </div>
-      <div>
-        <h2>Second review - 4.8/5</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-          nihil ea, eaque fugit amet possimus officiis asperiores aperiam facere
-          et?
-        </p>
-      </div>
-    </section>
-  );
+  const [movieReviews, setMovieReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const { movieId } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setIsLoading(true);
+        const data = await getMoviesReviews(movieId);
+        setMovieReviews(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [movieId]);
+
+  if (error) {
+    return alert('Something went wrong. Try again.');
+  } else if (isLoading) {
+    return <p>Loading...</p>;
+  } else if (!movieReviews) {
+    return <p>Sorry, no reviews for this movie.</p>;
+  } else {
+    return (
+      <section>
+        <ul>
+          {movieReviews.map(({ id, author, content }) => (
+            <li key={id}>
+              <h3>Author: {author}</h3>
+              <p>{content}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  }
 };
 
 export default Reviews;
