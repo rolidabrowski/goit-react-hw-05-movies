@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { BackLink } from '../../components';
@@ -92,7 +93,9 @@ export const MoviesDetails = () => {
                 <Link to="reviews">Reviews</Link>
               </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<div>Loading subpage...</div>}>
+              <Outlet />
+            </Suspense>
           </div>
         </Container>
       </main>
