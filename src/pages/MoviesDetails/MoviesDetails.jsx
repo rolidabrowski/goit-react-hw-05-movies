@@ -53,8 +53,12 @@ export const MoviesDetails = () => {
         <Container>
           <InfoContainer>
             <Poster
-              src={`https://image.tmdb.org/t/p/original${poster_path}`}
-              alt=""
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/original${poster_path}`
+                  : 'https://dummyimage.com/300x450/000/fff&text=No+image'
+              }
+              alt={title}
             />
             <InfoList>
               <Title>

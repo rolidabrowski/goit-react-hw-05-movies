@@ -1,4 +1,5 @@
 import { Form, Input, IconContainer } from './Searchbar.styled';
+import PropTypes from 'prop-types';
 
 export const Searchbar = ({ value, onChange }) => {
   return (
@@ -31,6 +32,11 @@ export const Searchbar = ({ value, onChange }) => {
       />
     </Form>
   );
+};
+
+Searchbar.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Searchbar;

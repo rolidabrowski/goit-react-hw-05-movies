@@ -35,7 +35,11 @@ export const Cast = () => {
           {movieCast.map(({ id, name, character, profile_path }) => (
             <li key={id}>
               <img
-                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : 'https://dummyimage.com/200x300/000/fff&text=No+image'
+                }
                 alt={name}
                 width="200"
               />
@@ -48,4 +52,5 @@ export const Cast = () => {
     );
   }
 };
+
 export default Cast;
